@@ -19,13 +19,24 @@
             <div id="answer-text">Answer</div>
             <input type="text">
             <div id="button-container">
-                <button>Save</button>
-                <button>Clear</button>
+                <button id="saveInput">Save</button>
+                <button id="clearInput">Clear</button>
             </div>
         </div>
-        
     </div>
     <div id="flashcard-container"></div>
+
+    <script>
+        document.getElementById("saveInput").addEventListener("click", createCard => {
+            let flashcardContainer = document.getElementById("flashcard-container");
+            let newCard = document.createElement("div");
+
+            flashcardContainer.appendChild(newCard);
+
+        })
+
+
+    </script>
     
 </body>
 </html>
