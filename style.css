@@ -1,3 +1,8 @@
+body {
+    background-color: #E9FAE3;
+    font-family: sans-serif;
+}
+
 #header {
     display: flex;
     align-items: center;
@@ -16,13 +21,16 @@
 }
 
 #create-card {
-    border: 1px solid black;
+    border: 1px solid lightgray;
     width: 20%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px;
+    background-color: #FFFFFF;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border-radius: 10px;
 }
 
 input {
@@ -44,11 +52,13 @@ input {
 .new-card {
     width: 30%;
     height: 200px;
-    border: 1px solid black;
+    border: 1px solid lightgray;
     margin: 10px;
     text-align: center;
     padding: 30px 10px 0px 10px;
     font-weight: 700;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: #FFFFFF;
 }
 
 .answer {
@@ -57,4 +67,9 @@ input {
     width: 80%;
     margin: 20px 30px;
     padding: 10px;
+}
+
+button {
+    border-radius: 5px;
+    background-color: #FFFFFF;
 }
