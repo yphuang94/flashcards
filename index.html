@@ -56,10 +56,15 @@
             document.getElementById("answerInput").value = "";
         })
 
-        document.getElementById("clearAll").addEventListener("click", clear => {
+        document.getElementById("clearAll").addEventListener("click", clearAll => {
             while (flashcardContainer.firstChild) {
                 flashcardContainer.removeChild(flashcardContainer.firstChild);
             }
+        })
+
+        document.getElementById("clearInput").addEventListener("click", clearInputs => {
+            document.getElementById("questionInput").value = "";
+            document.getElementById("answerInput").value = "";
         })
 
     </script>
