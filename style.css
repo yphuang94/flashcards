@@ -1,3 +1,7 @@
+h1 {
+    padding: 10px;
+}
+
 #creation-container {
     display: flex;
     justify-content: center;
@@ -29,7 +33,6 @@ input {
     display: flex;
     flex-wrap: wrap; /* allows elements to overflow, or wrap */
     flex: 1 0 30%; /* sets the number of elements before overflowing to next row */
-    
 }
 
 .new-card {
@@ -38,5 +41,14 @@ input {
     border: 1px solid black;
     margin: 10px;
     text-align: center;
-    padding-top: 30px;
+    padding: 30px 10px 0px 10px;
+    font-weight: 700;
+}
+
+.answer {
+    color: #DF928E;
+    border-top: 2px solid gray;
+    width: 80%;
+    margin: 20px 30px;
+    padding: 10px;
 }

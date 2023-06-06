@@ -14,10 +14,13 @@
     <div id="creation-container">
         <div id="create-card">
             <h2>Create Flashcard</h2>
+
             <div id="question-text">Question</div>
             <input type="text" id="questionInput">
+
             <div id="answer-text">Answer</div>
             <input type="text" id="answerInput">
+
             <div id="button-container">
                 <button id="saveInput">Save</button>
                 <button id="clearInput">Clear</button>
@@ -35,16 +38,18 @@
             let answerInput = document.getElementById("answerInput").value;
             
             newCard.innerHTML = questionInput; //add question to new card's HTML
-            newCard.className = "new-card"; //assign class to new card
+            newCard.className = "new-card"; //assign class to new element
+            flashcardContainer.appendChild(newCard); //append new card element
             
             newCard.addEventListener("click", revealAnswer => {
                 let answerContainer = document.createElement("p"); //create p container for answer
-                newCard.appendChild(answerContainer); //add p element above
-                answerContainer.innerHTML = answerInput; //reveal answer
-                answerContainer.style.color = "#DF928E";
-            });
 
-            flashcardContainer.appendChild(newCard); //append new card element
+                if (newCard.childElementCount == 0) {
+                    newCard.appendChild(answerContainer); //add p element to newCard element
+                    answerContainer.innerHTML = answerInput; //reveal answer
+                    answerContainer.className = "answer" //assign class to new element
+                }
+            });
         })
 
 
