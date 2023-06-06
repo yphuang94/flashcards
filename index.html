@@ -32,16 +32,15 @@
     <script>
         document.getElementById("saveInput").addEventListener("click", createCard => {
             let flashcardContainer = document.getElementById("flashcard-container");
-            let newCard = document.createElement("div"); //create new card container
-
             let questionInput = document.getElementById("questionInput").value;
             let answerInput = document.getElementById("answerInput").value;
+            let newCard = document.createElement("div"); //create new card container
             
             newCard.innerHTML = questionInput; //add question to new card's HTML
             newCard.className = "new-card"; //assign class to new element
             flashcardContainer.appendChild(newCard); //append new card element
             
-            newCard.addEventListener("click", revealAnswer => {
+            newCard.addEventListener("click", revealAnswer => { //this is already created as soon as we click "save"
                 let answerContainer = document.createElement("p"); //create p container for answer
 
                 if (newCard.childElementCount == 0) {
@@ -50,8 +49,10 @@
                     answerContainer.className = "answer" //assign class to new element
                 }
             });
-        })
 
+            document.getElementById("questionInput").value = "";
+            document.getElementById("answerInput").value = "";
+        })
 
     </script>
     
