@@ -26,6 +26,10 @@ input {
 
 #flashcard-container {
     width: 100vw;
+    display: flex;
+    flex-wrap: wrap; /* allows elements to overflow, or wrap */
+    flex: 1 0 30%; /* sets the number of elements before overflowing to next row */
+    
 }
 
 .new-card {
