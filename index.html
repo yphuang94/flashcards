@@ -30,17 +30,18 @@
         document.getElementById("saveInput").addEventListener("click", createCard => {
             let flashcardContainer = document.getElementById("flashcard-container");
             let newCard = document.createElement("div"); //create new card container
+
             let questionInput = document.getElementById("questionInput").value;
             let answerInput = document.getElementById("answerInput").value;
-            
             
             newCard.innerHTML = questionInput; //add question to new card's HTML
             newCard.className = "new-card"; //assign class to new card
             
             newCard.addEventListener("click", revealAnswer => {
-                let answerContainer = document.createElement("p");
-                newCard.appendChild(answerContainer);
-                answerContainer.innerHTML = answerInput;
+                let answerContainer = document.createElement("p"); //create p container for answer
+                newCard.appendChild(answerContainer); //add p element above
+                answerContainer.innerHTML = answerInput; //reveal answer
+                answerContainer.style.color = "#DF928E";
             });
 
             flashcardContainer.appendChild(newCard); //append new card element
