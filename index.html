@@ -10,6 +10,7 @@
 <body>
     <div id="header">
         <h1>Flashcards</h1>
+        <button id="clearAll">Clear All Cards</button>
     </div>
     <div id="creation-container">
         <div id="create-card">
@@ -30,15 +31,16 @@
     <div id="flashcard-container"></div>
 
     <script>
+        let flashcardContainer = document.getElementById("flashcard-container");
+
         document.getElementById("saveInput").addEventListener("click", createCard => {
-            let flashcardContainer = document.getElementById("flashcard-container");
             let questionInput = document.getElementById("questionInput").value;
             let answerInput = document.getElementById("answerInput").value;
             let newCard = document.createElement("div"); //create new card container
             
+            flashcardContainer.appendChild(newCard); //append new card element
             newCard.innerHTML = questionInput; //add question to new card's HTML
             newCard.className = "new-card"; //assign class to new element
-            flashcardContainer.appendChild(newCard); //append new card element
             
             newCard.addEventListener("click", revealAnswer => { //this is already created as soon as we click "save"
                 let answerContainer = document.createElement("p"); //create p container for answer
@@ -52,6 +54,12 @@
 
             document.getElementById("questionInput").value = "";
             document.getElementById("answerInput").value = "";
+        })
+
+        document.getElementById("clearAll").addEventListener("click", clear => {
+            while (flashcardContainer.firstChild) {
+                flashcardContainer.removeChild(flashcardContainer.firstChild);
+            }
         })
 
     </script>

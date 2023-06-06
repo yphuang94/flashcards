@@ -1,5 +1,11 @@
-h1 {
-    padding: 10px;
+#header {
+    display: flex;
+    align-items: center;
+}
+
+#clearAll {
+    margin-left: auto;
+    height: 30%;
 }
 
 #creation-container {
