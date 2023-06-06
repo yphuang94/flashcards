@@ -24,3 +24,15 @@ input {
     margin-right: auto;
 }
 
+#flashcard-container {
+    width: 100vw;
+}
+
+.new-card {
+    width: 30%;
+    height: 200px;
+    border: 1px solid black;
+    margin: 10px;
+    text-align: center;
+    padding-top: 30px;
+}

@@ -15,9 +15,9 @@
         <div id="create-card">
             <h2>Create Flashcard</h2>
             <div id="question-text">Question</div>
-            <input type="text">
+            <input type="text" id="questionInput">
             <div id="answer-text">Answer</div>
-            <input type="text">
+            <input type="text" id="answerInput">
             <div id="button-container">
                 <button id="saveInput">Save</button>
                 <button id="clearInput">Clear</button>
@@ -29,10 +29,14 @@
     <script>
         document.getElementById("saveInput").addEventListener("click", createCard => {
             let flashcardContainer = document.getElementById("flashcard-container");
-            let newCard = document.createElement("div");
+            let newCard = document.createElement("div"); //create new card container
+            
+            newCard.innerHTML = document.getElementById("questionInput").value; //add question to new card's HTML
+            newCard.className = "new-card"; //assign class to new card
 
-            flashcardContainer.appendChild(newCard);
+            flashcardContainer.appendChild(newCard); //append new card element
 
+            //create variable for question and answer inputs
         })
 
 
