@@ -1,0 +1,16 @@
+When a user clicks on "save":
+
+1. gets value of question
+
+2. gets value of answer
+
+3. creates new card in flashcardContainer
+    1. adds question value to newly created card
+    2. assigns class
+    3. adds event listener on card
+
+4. if card is clicked: 
+    1. create new element in card
+    2. adds answer value to new element
+    3. assigns class
+
