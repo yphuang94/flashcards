@@ -50,14 +50,28 @@
             flashcardSection.appendChild(newCard);
         }
 
+        function getCurrent() { //use same variable within multiple event listeners / functions
+            let currentCard = document.getElementsByClassName(`${cardId}`)[0];
+            return currentCard;
+        }
+
         save.addEventListener("click", addQuestion);
 
         function addQuestion() {
-            let currentCard = document.getElementsByClassName(`${cardId}`)[0];
             let newQuestion = document.createElement("div");
             newQuestion.innerHTML = userQuestion.value;
-            currentCard.appendChild(newQuestion);
+            getCurrent().appendChild(newQuestion); //invoke function to grab parent element
         }
+
+        save.addEventListener("click", addAnswer);
+
+        function addAnswer() {
+            let newAnswer = document.createElement("div");
+            newAnswer.innerHTML = userAnswer.value;
+            getCurrent().appendChild(newAnswer);
+        }
+
+        
         
 
 
