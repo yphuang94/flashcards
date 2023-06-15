@@ -1,0 +1,34 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#clear-all {
+    height: 50%;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+#prompt-container {
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+h2 {
+    text-align: center;
+}
+
+input{
+    width: 300px;
+}
+
+#button-container {
+    text-align: center;
+    margin: 10px;
+}
+
