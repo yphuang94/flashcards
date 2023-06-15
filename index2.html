@@ -39,15 +39,26 @@
         let userAnswer = document.getElementById("answer-input");
         let save = document.getElementById("saveBtn");
         let clear = document.getElementById("clearBtn");
+        let cardId = 0;
 
         save.addEventListener("click", createCard);
 
         function createCard() {
+            cardId++; //unique ID
             let newCard = document.createElement("div");
-            newCard.className = "newCard-container";
+            newCard.className = `${cardId} newCard-container`;
             flashcardSection.appendChild(newCard);
-            
         }
+
+        save.addEventListener("click", addQuestion);
+
+        function addQuestion() {
+            let currentCard = document.getElementsByClassName(`${cardId}`)[0];
+            let newQuestion = document.createElement("div");
+            newQuestion.innerHTML = userQuestion.value;
+            currentCard.appendChild(newQuestion);
+        }
+        
 
 
     </script>
