@@ -7,10 +7,11 @@ header {
 #clear-all {
     height: 50%;
 }
-
+/* ---------- */
 main {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 #prompt-container {
@@ -27,8 +28,25 @@ input{
     width: 300px;
 }
 
+#question-input {
+    margin-bottom: 20px;
+}
+
 #button-container {
     text-align: center;
     margin: 10px;
 }
+/* ---------- */
+#card-container {
+    display: flex;
+    width: 100vw;
+    flex: 1 0 33%;
+    flex-wrap: wrap;
+}
 
+.newCard-container {
+    height: 200px;
+    width: 30%;
+    border: 1px solid black;
+    margin: 10px;
+}
