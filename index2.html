@@ -30,49 +30,44 @@
     </main>
 
     <footer>
-        
+
     </footer>
 
     <script>
         let flashcardSection = document.getElementById("card-container");
-        let userQuestion = document.getElementById("question-input");
-        let userAnswer = document.getElementById("answer-input");
         let save = document.getElementById("saveBtn");
         let clear = document.getElementById("clearBtn");
-        let cardId = 0;
+        let userQuestion = document.getElementById("question-input");
+        let userAnswer = document.getElementById("answer-input");
 
-        save.addEventListener("click", createCard);
+        save.addEventListener("click", saveCard);
 
+        function saveCard() {
+            let content = {Question: userQuestion.value, Answer: userAnswer.value}
+            createCare();
+            userQuestion.value = "";
+            userAnswer.value = "";
+        }
+        
         function createCard() {
-            cardId++; //unique ID
             let newCard = document.createElement("div");
-            newCard.className = `${cardId} newCard-container`;
+            newCard.className = "flashcard";
             flashcardSection.appendChild(newCard);
+
+            let question = document.createElement("div");
+            question.innerHTML = userQuestion.value;
+            question.className = "question";
+            newCard.appendChild(question);
+
+            let answer = document.createElement("div");
+            answer.innerHTML = userAnswer.value;
+            answer.className = "answer";
+            newCard.appendChild(answer);
         }
-
-        function getCurrent() { //use same variable within multiple event listeners / functions
-            let currentCard = document.getElementsByClassName(`${cardId}`)[0];
-            return currentCard;
-        }
-
-        save.addEventListener("click", addQuestion);
-
-        function addQuestion() {
-            let newQuestion = document.createElement("div");
-            newQuestion.innerHTML = userQuestion.value;
-            getCurrent().appendChild(newQuestion); //invoke function to grab parent element
-        }
-
-        save.addEventListener("click", addAnswer);
-
-        function addAnswer() {
-            let newAnswer = document.createElement("div");
-            newAnswer.innerHTML = userAnswer.value;
-            getCurrent().appendChild(newAnswer);
-        }
+        
 
         
-        
+
 
 
     </script>

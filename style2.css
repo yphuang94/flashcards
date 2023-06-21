@@ -44,9 +44,17 @@ input{
     flex-wrap: wrap;
 }
 
-.newCard-container {
+.flashcard {
     height: 200px;
     width: 30%;
     border: 1px solid black;
     margin: 10px;
+}
+
+.question {
+    text-align: center;
+}
+
+.answer {
+    text-align: center;
 }
