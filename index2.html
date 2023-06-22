@@ -34,11 +34,14 @@
     </footer>
 
     <script>
-        let flashcardSection = document.getElementById("card-container");
-        let save = document.getElementById("saveBtn");
-        let clear = document.getElementById("clearBtn");
+        let flashcardContainer = document.getElementById("card-container");
+        let clearAll = document.getElementById("clear-all");
+
         let userQuestion = document.getElementById("question-input");
         let userAnswer = document.getElementById("answer-input");
+        
+        let save = document.getElementById("saveBtn");
+        let clear = document.getElementById("clearBtn");
 
         save.addEventListener("click", saveCard);
 
@@ -51,7 +54,7 @@
         function createCard() {
             let newCard = document.createElement("div");
             newCard.className = "flashcard";
-            flashcardSection.appendChild(newCard);
+            flashcardContainer.appendChild(newCard);
 
             let question = document.createElement("div");
             question.innerHTML = userQuestion.value;
@@ -68,20 +71,22 @@
                 answer.style.display = "block";
             })
         }
-        
-        let clearAll = document.getElementById("clear-all");
 
+        clear.addEventListener("click", clearInputs);
+
+        function clearInputs() {
+            userQuestion.value = "";
+            userAnswer.value = "";
+        }
+        
         clearAll.addEventListener("click", delCards);
 
         function delCards() {
-            while (flashcardSection.firstChild) {
-                flashcardSection.removeChild(flashcardSection.firstChild);
+            while (flashcardContainer.firstChild) {
+                flashcardContainer.removeChild(flashcardContainer.firstChild);
             }
         }
         
-
-
-
     </script>
 </body>
 </html>
