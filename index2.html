@@ -43,8 +43,7 @@
         save.addEventListener("click", saveCard);
 
         function saveCard() {
-            let content = {Question: userQuestion.value, Answer: userAnswer.value}
-            createCare();
+            createCard();
             userQuestion.value = "";
             userAnswer.value = "";
         }
@@ -61,11 +60,24 @@
 
             let answer = document.createElement("div");
             answer.innerHTML = userAnswer.value;
+            answer.style.display = "none";
             answer.className = "answer";
             newCard.appendChild(answer);
+
+            newCard.addEventListener("click", revealAnswer => {
+                answer.style.display = "block";
+            })
         }
         
+        let clearAll = document.getElementById("clear-all");
 
+        clearAll.addEventListener("click", delCards);
+
+        function delCards() {
+            while (flashcardSection.firstChild) {
+                flashcardSection.removeChild(flashcardSection.firstChild);
+            }
+        }
         
 
 
