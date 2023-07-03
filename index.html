@@ -2,72 +2,91 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flashcards</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Flashcards v2</title>
+    <link rel="stylesheet" href="style2.css">
 </head>
 <body>
-    <div id="header">
-        <h1>Flashcards</h1>
-        <button id="clearAll">Clear All Cards</button>
-    </div>
-    <div id="creation-container">
-        <div id="create-card">
+    <header>
+        <h1 id="page-title">Flashcards</h1>
+        <button id="clear-all">Clear All Cards</button>
+    </header>
+
+    <main>
+        <div id="prompt-container">
             <h2>Create Flashcard</h2>
-
-            <div id="question-text">Question</div>
-            <input type="text" id="questionInput">
-
-            <div id="answer-text">Answer</div>
-            <input type="text" id="answerInput">
-
+            <div id="input-container">
+                <div>Question</div>
+                <input type="text" id="question-input">
+                <div>Answer</div>
+                <input type="text" id="answer-input">
+            </div>
             <div id="button-container">
-                <button id="saveInput">Save</button>
-                <button id="clearInput">Clear</button>
+                <button id="saveBtn">Save</button>
+                <button id="clearBtn">Clear</button>
             </div>
         </div>
-    </div>
-    <div id="flashcard-container"></div>
+        <div id="card-container"></div>
+    </main>
+
+    <footer>
+
+    </footer>
 
     <script>
-        let flashcardContainer = document.getElementById("flashcard-container");
+        let flashcardContainer = document.getElementById("card-container");
+        let clearAll = document.getElementById("clear-all");
 
-        document.getElementById("saveInput").addEventListener("click", createCard => {
-            let questionInput = document.getElementById("questionInput").value;
-            let answerInput = document.getElementById("answerInput").value;
-            let newCard = document.createElement("div"); //create new card container
-            
-            flashcardContainer.appendChild(newCard); //append new card element
-            newCard.innerHTML = questionInput; //add question to new card's HTML
-            newCard.className = "new-card"; //assign class to new element
-            
-            newCard.addEventListener("click", revealAnswer => { //this is already created as soon as we click "save"
-                let answerContainer = document.createElement("p"); //create p container for answer
+        let userQuestion = document.getElementById("question-input");
+        let userAnswer = document.getElementById("answer-input");
+        
+        let save = document.getElementById("saveBtn");
+        let clear = document.getElementById("clearBtn");
 
-                if (newCard.childElementCount == 0) {
-                    newCard.appendChild(answerContainer); //add p element to newCard element
-                    answerContainer.innerHTML = answerInput; //reveal answer
-                    answerContainer.className = "answer" //assign class to new element
-                }
-            });
+        save.addEventListener("click", saveCard);
 
-            document.getElementById("questionInput").value = "";
-            document.getElementById("answerInput").value = "";
-        })
+        function saveCard() {
+            createCard();
+            userQuestion.value = "";
+            userAnswer.value = "";
+        }
+        
+        function createCard() {
+            let newCard = document.createElement("div");
+            newCard.className = "flashcard";
+            flashcardContainer.appendChild(newCard);
 
-        document.getElementById("clearAll").addEventListener("click", clearAll => {
+            let question = document.createElement("div");
+            question.innerHTML = userQuestion.value;
+            question.className = "question";
+            newCard.appendChild(question);
+
+            let answer = document.createElement("div");
+            answer.innerHTML = userAnswer.value;
+            answer.style.display = "none";
+            answer.className = "answer";
+            newCard.appendChild(answer);
+
+            newCard.addEventListener("click", revealAnswer => {
+                answer.style.display = "block";
+            })
+        }
+
+        clear.addEventListener("click", clearInputs);
+
+        function clearInputs() {
+            userQuestion.value = "";
+            userAnswer.value = "";
+        }
+        
+        clearAll.addEventListener("click", delCards);
+
+        function delCards() {
             while (flashcardContainer.firstChild) {
                 flashcardContainer.removeChild(flashcardContainer.firstChild);
             }
-        })
-
-        document.getElementById("clearInput").addEventListener("click", clearInputs => {
-            document.getElementById("questionInput").value = "";
-            document.getElementById("answerInput").value = "";
-        })
-
+        }
+        
     </script>
-    
 </body>
 </html>
